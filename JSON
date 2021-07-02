@@ -1,0 +1,35 @@
+JSON:
+	javascript object notation JS对象表示法
+1.和js对象的格式一样，只不过JSON字符串中的属性名必须加双引号，其他的和JS语法一致
+
+2.JSON分类：
+	1.对象{}
+		var obj = '{"name":"孙悟空","age":18,"gender":"男"}';
+	2.数组[]
+		var arr = '[1, 2, 3, "hello", true]';
+
+3.JSON中允许的值：
+	字符串 数值 布尔值 null  对象（普通对象可以， 函数对象不行） 数组    （undefined 和 函数对象不行）
+
+4.将JSON字符串转换为JS中的对象
+	JSON.parse():JSON ---> js对象 需要一个json作为参数
+	JSON.parse(obj);    var o = JSON.parse(arr); console.log(o[2]);
+
+5.js对象----> JSON
+	JSON.stringify(): 需要一个js对象作为参数，返回一个JSON字符串。
+		var obj = {name:"唐僧",age:18;gender:"男"};
+		var res = JSON.stringify(obj);
+
+  IE7及一下浏览器不知道JSON工具类，所以使用：
+	eval(): 用来执行一段字符串形式的js代码，并将执行结果返回。
+		var str = "alert('hi)";
+		eval(str);
+
+        var str = '{"name":"唐僧","age":18,"gender":"男"}';
+	eval(str);
+	如果eval()要执行的字符串有{}，那么它会将其视为代码块。如果不希望其被视为代码块解析，则需要在字符串前后各家个 括号 ()
+	var str = '({"name":"唐僧","age":18,"gender":"男"})';
+	eval(str);
+在开发中尽量不要使用eval()，执行性能差，还具有安全隐患。
+
+如果在IE7及以下浏览器中，直接引入外部js文件
