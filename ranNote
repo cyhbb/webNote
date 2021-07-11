@@ -1,0 +1,30 @@
+1.javascript中构造函数可以省略圆括号及参数
+ function Fn(){}
+ var fn = new Fn
+2.任何函数可以作为任何对象的方法来调用
+call() 使用它自有的实参列表作为函数的实参
+apply() 要去以数组的形式传入参数
+
+
+
+1.对象中get/set方法，设置为对象的属性
+存取器属性的四个特征：读取(get)，写入(set)，可枚举性，可配置性
+对象的属性有一个名字和四个特征：它的值(value)，可写性(writable)，可枚举性(enumerable)，可配置性(configurable)
+
+Object.getOwnPropertyDescriptor(对象, 字符串属性): 获得对象某属性的属性描述符 (无法获得继承属性特性) 
+						可遍历原型链获得继承... : Object.getPrototypeOf
+	
+Object.defineProperty(当前对象, 属性名, 描述符)：设置属性的特性，或让新建属性具有某种特性
+(复数defineProperties，多个)	var obj = {name: "hi"}
+				Object.defineProperty(obj, "name",{writable:false})
+
+
+2.原型属性：
+	属性名.isPrototypeOf(对象) : 检测属性是否是对象的原型
+3.可扩展属性：
+	如果将对象设置为不可扩展属性，就没办法将其转回可扩展属性
+	Object.isExtensible(obj): 检查对象是否为可扩展属性
+	Object.preventExtensions(obj): 设置为不可扩展属性
+
+
+
