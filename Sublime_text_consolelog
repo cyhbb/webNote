@@ -1,0 +1,18 @@
+1.安装node.js,cmd中运行node -v,出现版本号搭建成功。
+2.打开Sublime,Tools ---> Bulid System ---> New Build System,将以下代码复制，保存命名为 node.sublime-build,搭建成功。
+{
+"cmd": ["node", "$file"],
+"file_regex": "^[ ]*File \"(...*?)\", line ([0-9]*)",
+"working_dir": "${project_path:${folder}}",
+"selector": "source.js",
+"shell": true,
+"encoding": "utf-8",
+"windows": {
+"cmd": ["node", "$file"]
+},
+"linux": {
+"cmd": ["killall node; node", "$file"]
+}
+}
+
+3.新建js文件，保存后ctrl+B 即可在控制台输出内容
